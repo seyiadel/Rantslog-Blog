@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}{{category.title}}{% endblock %}
+
+{% block body %}
+<section class="hero ">
+    <div class="hero-body">
+        <div class="container">
+            <section class="section">
+                <div class="columns is-variable is-8">
+                  <div class="column is-8 is-offset-2">
+                        {% for post in posts %}
+                            <div class="content is-medium">
+                                    {% if post.image %}
+                                        <figure>
+                                            <img src="{{ post.image.url }}">
+                                        </figure>
+                                    {% endif %}
+                                <a href="{% url 'post_detail'  post.slug %}"> <!--post.category.slug-->
+                                    <h2 class="subtitle is-5 has-text-grey">{{post.created_at |timesince }}</h2>
+                                    <h1 class="title has-text-black is-3">{{post.title}}</h1>
+                                    <p class="has-text-dark">{{post.intro}}</p>
+                                </a>
+                            </div>
+                            {% empty %}
+                            <div class="content">
+                                <h2>Opps, No content here yet.. </h2>
+                            </div>
+                        {% endfor%}
+                  </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
