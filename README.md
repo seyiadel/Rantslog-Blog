@@ -17,7 +17,7 @@ How To Run:
 To get it running on your local machine, follow the steps below:
 
 -Run the commands below in your terminal:
-
+https://github.com/seyiadel/Rantslog-Blog.git
 
 -Create a virtual environment adn Install the requirements with the command below:
 virtualenv env
